@@ -41,7 +41,7 @@ Follow these steps:
    ```
    ..\coco-2.6.3\code-experiments\build\matlab
    ```  
-   This folder contains all the necessary files. You can rename it if needed.
+   This folder contains all the necessary files. You can rename it if needed (e.g., `coco_matlab`).
 
 ---
 
