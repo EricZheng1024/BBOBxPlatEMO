@@ -1,17 +1,49 @@
-# BBOBxPlatEMO
- 
-在PlatEMO v3.x上使用BBOB测试问题。
+### Using the BBOB Test Suite on PlatEMO v3.x
 
-从头开始建立（2025.1.10验证可行）：
+To use the BBOB test suite, place the folder in the following path:
 
-下载[coco v2.6.3](https://github.com/numbbo/coco/tree/v2.6.3)
+```
+PlatEMO\Problems\Multi-objective optimization
+```
 
-根据首页的README配置。我使用了MinGW，注意其需要配置系统环境变量，否则matlab无法识别（可以通过mex -setup来检查matlab是否正确配置了C语言编译器），请自行搜索相关教程。不需要安装cocopp。
+This implementation adopts the **`bbob-biobj`** test suite. The **`bbob-biobj`** suite consists of 55 test problems, each characterized by 15 different parameter configurations and 6 alternative numbers of variables (i.e., 2, 3, 5, 10, 20, and 40).
 
-本人是通过conda创建虚拟环境（python v3.6）后，再运行该命令。事实上，应该可以使用任意符合版本的python解释器执行python do.py run-matlab。因为并未发现安装了多余的python包（do.py中也没找到相关命令）。运行该命令会自动启动matlab并自动关闭（两次）。
+---
 
-有55个测试问题，每个测试问题有15个实例，每个实例有6中变量维度设置[2,3,5,10,20,40]
+### How to Build the BBOB Test Suite for MATLAB from Scratch
 
-完成配置后，只需要该文件夹 ..\coco-2.6.3\code-experiments\build\matlab，可以重新命名，只要把路径加入matlab即可
+Follow these steps:
 
-可参考[tpb](https://github.com/ryojitanabe/tpb)
+1. **Download COCO v2.6.3 ([GitHub repository](https://github.com/numbbo/coco/tree/v2.6.3))**
+
+2. **Configure COCO**
+   Follow the instructions in the README file provided on the homepage of COCO v2.6.3 GitHub repository.
+   - **Compiler Setup**: For example, use MinGW for compilation. Ensure that the system environment variables are properly configured; otherwise, MATLAB will not recognize the compiler.
+   - **MATLAB Compiler Check**: Verify that MATLAB is configured with a C language compiler by running the following command in MATLAB:  
+     ```matlab
+     mex -setup
+     ```  
+     If issues arise, refer to relevant tutorials for guidance.
+
+3. **No Need to Install `cocopp`**
+
+4. **Set Up a Python Environment**  
+   - Create a virtual environment using Conda (Python v3.6).  
+   - Run the following command:  
+     ```bash
+     python do.py run-matlab
+     ```  
+     This command will automatically start MATLAB and close it twice.  
+     **Note**: Any Python interpreter compatible with the version should work, as no additional Python packages or dependencies are required to execute `do.py`.
+
+5. **Extract the Required Folder**  
+   After completing the configuration, locate the following folder:  
+   ```
+   ..\coco-2.6.3\code-experiments\build\matlab
+   ```  
+   This folder contains all the necessary files. You can rename it if needed.
+
+---
+
+Additional References:
+- tpb ([GitHub repository](https://github.com/ryojitanabe/tpb))
